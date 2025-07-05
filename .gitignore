@@ -1,0 +1,12 @@
+# Could this go in a personal gitignore? yes. will it? no.
+*.out
+*.o
+multiboot
+.test
+cross-compiler-src
+grub-bootable-iso
+*.bin
+*.iso
+info.sh
+is_bootable.sh
+target
