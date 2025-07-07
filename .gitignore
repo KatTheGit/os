@@ -4,6 +4,7 @@
 multiboot
 .test
 cross-compiler-src
+.cross-compiler-src
 grub-bootable-iso
 *.bin
 *.iso

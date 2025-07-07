@@ -1,5 +1,15 @@
+#include <stdint.h>
+
+#include "kernel_drivers/vga.c"
+
+
 void kernel_main(void) {
-  asm(".intel_syntax noprefix"); // tell the compiler to use based syntax
-  asm("mov eax, 1234567"); // Tested, yay it works
-  asm("hlt"); // this will segfault in userspace lol
+
+	// For now, this just removes the cursor and blanks the screen.
+	vga_init();
+
+	// Kernel shell
+	vga_term_print("Hello world!");
+
+  asm("hlt"); // Don't waste my precious cpu cycles grrrr arf arf arf
 }
