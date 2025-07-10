@@ -1,15 +1,15 @@
 #include <stdint.h>
 
 #include "kernel_drivers/vga.c"
-
 // Global Descriptor Table
 #include "gdt.c"
 
 
 void kernel_main(void) {
 
-	mkgdt();
-
+	// Load the Global Descriptor Table
+	gdt_init();
+	
 	// For now, this just removes the cursor and blanks the screen.
 	vga_init();
 
@@ -25,8 +25,10 @@ void kernel_main(void) {
 	vga_term_print(" ");
 	vga_term_print(&charlist[0]);
 	// Kernel shell
-	vga_term_print("TERMINAL SHELL"); // So apparently using "quotes" null terminates automatically
+	vga_term_print("TERMINAL SHELL"); // So apparently using "quotes" null
+																		// terminates automatically, very demure
 	vga_term_print(">");
+	
 
   asm("hlt"); // Don't waste my precious cpu cycles grrrr arf arf arf
 }

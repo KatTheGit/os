@@ -13,9 +13,18 @@ else
   echo "An error occured while assembling the header."
   exit 1
 fi
+# assemble the assembly part of the gdt loader
+echo ""
+if nasm -f elf32 src/gdt.asm -o target/gdt.o; then
+  echo "GDT assembly file assembled"
+else
+  echo "Error while assembling gdt asm file"
+  exit 1
+fi
+
 # link the two into the final binary
 echo ""
-if i686-elf-gcc -T src/linker_script.ld -o target/myos.bin -ffreestanding -O2 -nostdlib target/multiboot.o target/kernel.o -lgcc; then
+if i686-elf-gcc -T src/linker_script.ld -o target/myos.bin -ffreestanding -O2 -nostdlib target/multiboot.o target/kernel.o target/gdt.o -lgcc; then
   echo "Everything linked, your majesty."
 else
   echo "Failed to link files."

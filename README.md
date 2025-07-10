@@ -14,13 +14,14 @@ An attempt at a homemade OS kernel, using wiki.OSDev.org and the necessary docs.
         - [x] Get it to work
         - [ ] Understand how it works and customise
 - [ ] Interrupts
-  - [ ] GDT
+  - [x] GDT
   - [ ] IDT
 - [ ] 
 - [ ] Video
   - [x] Basic VGA video for basic debug
   - [ ] GPU stuff
     - [ ] kms
+- [ ] Use a makefile instead of a bash script
 
 ### Random stuff
 
@@ -47,3 +48,8 @@ gcc 14.2.0 compiled with 15.1.1
 binutils 2.43.1 compiled with gcc 15.1.1
 
 run compile.sh
+
+### Project structure
+
+- `grub-iso/` directory used to create the grub bootable image with grub-mkrescue
+- `kernel_drivers/` directory for hardcoded kernel drivers.
