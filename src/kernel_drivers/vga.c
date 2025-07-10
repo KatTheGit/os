@@ -10,7 +10,7 @@
 
 // buffer to keep scrollable text
 #define TERMINAL_BUFFER_SIZE 80 * 1024 //1024 lines
-uint8_t terminal_text[TERMINAL_BUFFER_SIZE] = { 'A' }; // initialise with 0s
+uint8_t terminal_text[TERMINAL_BUFFER_SIZE];
 
 // color byte:
 // 0000 0000  a = bright (1) dark (0)
@@ -64,6 +64,8 @@ void display_terminal_text(int scroll_index) {;
 }
 
 // stolen from osdev hehehehehehe
+// ONLY WORKS ON NULL TERMINATED STRINGS
+// iterates through the string until it finds a zero
 int strlen(char* str) 
 {
 	int len = 0;

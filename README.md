@@ -13,14 +13,14 @@ An attempt at a homemade OS kernel, using wiki.OSDev.org and the necessary docs.
       - [x] Link kernel and bootloader (link NASM asm and GCC C.)
         - [x] Get it to work
         - [ ] Understand how it works and customise
-- [ ] Video
-  - [ ] Basic VGA video for basic debug
-  - [ ] GPU stuff
-    - [ ] kms
 - [ ] Interrupts
   - [ ] GDT
   - [ ] IDT
 - [ ] 
+- [ ] Video
+  - [x] Basic VGA video for basic debug
+  - [ ] GPU stuff
+    - [ ] kms
 
 ### Random stuff
 
@@ -37,3 +37,13 @@ nasm -f elf32 src/multiboot.asm -o target/multiboot.o
 # Link
 i686-elf-gcc -T src/linker_script.ld -o target/myos.bin -ffreestanding -O2 -nostdlib target/multiboot.o target/kernel.o -lgcc
 ```
+
+### Compile
+
+Build a [cross-compiler](https://wiki.osdev.org/GCC_Cross-Compiler).
+
+gcc 14.2.0 compiled with 15.1.1
+
+binutils 2.43.1 compiled with gcc 15.1.1
+
+run compile.sh

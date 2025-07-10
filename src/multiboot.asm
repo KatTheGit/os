@@ -1,3 +1,5 @@
+; NASM asm
+
 section .multiboot
 ;bits 32 ; tell bro we're in 32 bit mode
 ;align 32 ; According to the multiboot standard, the header should be 32-bit
